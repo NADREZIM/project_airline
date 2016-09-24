@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <context-param>
+        <param-name>cities</param-name>
+        <param-value>Oslo Kiev Minsk London Baku Moscow</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>ua.nure.borisov.summaryTask4.airline.listeners.SelectedListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>ua.nure.borisov.summaryTask4.airline.listeners.ContentListener</listener-class>
+    </listener>
+
+    <welcome-file-list>
+        <welcome-file>login</welcome-file>
+    </welcome-file-list>
+
+    <filter>
+        <filter-name>LangFilter</filter-name>
+        <filter-class>ua.nure.borisov.summaryTask4.airline.filter.LangFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>ua.nure.borisov.summaryTask4.airline.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>AccessFilter</filter-name>
+        <filter-class>ua.nure.borisov.summaryTask4.airline.filter.AccessFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LangFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AccessFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+        <jsp-property-group>
+            <url-pattern>*.jspf</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>

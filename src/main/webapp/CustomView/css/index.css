@@ -1,0 +1,8 @@
+.error-text{
+    color: red;
+}
+
+.radio-button-crutch{
+    position: inherit !important;
+    opacity: 100 !important;
+}
